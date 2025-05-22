@@ -7,13 +7,19 @@ pipeline{
 
     stages{
         stage('check node version'){
-            sh '''
-                node -v
-                npm -v
-            '''
+            steps{
+                sh '''
+                    node -v
+                    npm -v
+                '''
+            }
+
         }
         stage('install dependencies'){
-            sh 'npm install --no-audit'
+            steps{
+                sh 'npm install --no-audit'
+            }
+            
         }
             
     }
