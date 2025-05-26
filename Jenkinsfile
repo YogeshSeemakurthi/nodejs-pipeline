@@ -51,7 +51,7 @@ pipeline{
         }
         stage('docker build'){
             steps{
-                sh 'docker build -t yseemakurthi/test:$GIT_COMMIT'
+                sh 'docker build -t yseemakurthi/test:$GIT_COMMIT .'
             }
         }
             
