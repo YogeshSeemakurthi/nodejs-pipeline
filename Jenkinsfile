@@ -51,7 +51,8 @@ pipeline{
         }
         stage('docker build'){
             steps{
-                sh 'sudo systemctl start docker'
+                sh 'sudo su'
+                sh 'systemctl start docker'
                 sh 'sleep 50'
                 sh 'docker build -t yseemakurthi/test:$GIT_COMMIT .'
             }
