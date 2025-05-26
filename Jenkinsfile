@@ -3,7 +3,6 @@ pipeline{
 
     tools {
     nodejs 'node-24-0-2'
-    dockerTool 'docker'
     }
     environment{
         SONAR_SCANNER_HOME = tool 'sonar-7-1-0'
@@ -51,9 +50,6 @@ pipeline{
         }
         stage('docker build'){
             steps{
-                sh 'sudo su'
-                sh 'systemctl start docker'
-                sh 'sleep 50'
                 sh 'docker build -t yseemakurthi/test:$GIT_COMMIT .'
             }
         }
